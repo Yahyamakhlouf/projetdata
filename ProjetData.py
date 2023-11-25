@@ -31,7 +31,7 @@ def run():
 
     code_postal = st.number_input('Code Postal', min_value=10000, max_value=99999, step=1)
     if len(str(code_postal)) != 5:
-        st.warning('Veuillez entrer un code postal valide de 5 chiffres.')
+        st.warning('Veuillez entrer un code postal valide.')
 
 
 if __name__ == "__main__":
