@@ -29,7 +29,7 @@ def run():
 
     st.selectbox('Type de contrat', ["CDD","CDI"])
 
-    code_postal = st.number_input('Code Postal', min_value=10000, max_value=99999)
+    code_postal = st.number_input('Code Postal')
     if len(str(code_postal)) != 5:
         st.warning('Veuillez entrer un code postal valide.')
 
