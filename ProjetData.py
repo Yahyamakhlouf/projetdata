@@ -28,7 +28,7 @@ def run():
 
 
     contrat = st.selectbox('Type de contrat', ["","CDD","CDI"])
-    if  contrat != "":
+    if  contrat == "":
         st.warning('Veuillez selelctionner un type de contrat.')
 
     code_postal = st.number_input('Code Postal', step=1, value=None)
