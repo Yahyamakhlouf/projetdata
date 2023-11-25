@@ -27,7 +27,7 @@ def run():
     st.write("# Welcome to ProjetData")
 
 
-    st.selectbox('Type de contrat', ["CDD","CDI"])
+    st.selectbox('Type de contrat', ['CDD','CDI'])
 
 
 if __name__ == "__main__":
