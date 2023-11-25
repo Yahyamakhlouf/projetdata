@@ -27,7 +27,7 @@ def run():
     st.write("# Welcome to ProjetData")
 
 
-    st.selectbox('Type de contrat', ["Selectionnez un type de contrat","CDD","CDI"])
+    st.selectbox('Type de contrat', [,"CDD","CDI"], value=None)
 
     code_postal = st.number_input('Code Postal', step=1, value=None)
     if len(str(code_postal)) != 5 and code_postal != None:
