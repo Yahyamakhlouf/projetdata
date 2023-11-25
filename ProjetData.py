@@ -28,6 +28,7 @@ def run():
 
 
     st.selectbox('Type de contrat', ["CDD","CDI"])
+    st.number_input('Code Postal')
 
 
 if __name__ == "__main__":
