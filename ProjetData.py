@@ -11,7 +11,7 @@ def run():
     )
 
     st.write("# Welcome to ProjetData")
-    st.write("## Mayssa"
+
 
     contrat = st.selectbox('Type de contrat', ["","CDD","CDI"])
     if  contrat == "":
