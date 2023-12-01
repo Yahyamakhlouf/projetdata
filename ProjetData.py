@@ -28,7 +28,7 @@ def run():
         st.warning('Veuillez entrer un code postal valide.')
 
     st.pydeck_chart(
-            pdk.Deck(
+            Deck(
                 map_style=None,
                 initial_view_state={
                     "latitude": 37.76,
