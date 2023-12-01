@@ -32,7 +32,7 @@ def run():
     if len(str(code_postal)) != 5 and code_postal != None:
         st.warning('Veuillez entrer un code postal valide.')
 
-    mapping_demo()
+    st.mapping_demo()
 
 
 #La carte graphique
@@ -116,16 +116,6 @@ def mapping_demo():
         """
             % e.reason
         )
-
-
-st.set_page_config(page_title="Mapping Demo", page_icon="🌍")
-st.markdown("# Mapping Demo")
-st.sidebar.header("Mapping Demo")
-st.write(
-    """This demo shows how to use
-[`st.pydeck_chart`](https://docs.streamlit.io/library/api-reference/charts/st.pydeck_chart)
-to display geospatial data."""
-)
 
 
 if __name__ == "__main__":
