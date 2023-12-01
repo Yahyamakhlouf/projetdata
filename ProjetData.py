@@ -8,13 +8,6 @@ from streamlit.hello.utils import show_code
 
 LOGGER = get_logger(__name__)
 
-def from_data_file(filename):
-    url = (
-        "https://raw.githubusercontent.com/streamlit/"
-        "example-data/master/hello/v1/%s" % filename
-    )
-    return pd.read_json(url)
-
 def run():
     st.set_page_config(
         page_title="Hello",
@@ -72,20 +65,7 @@ def mapping_demo():
                 get_color=[0, 0, 0, 200],
                 get_size=10,
                 get_alignment_baseline="'bottom'",
-            ),
-            "Outbound Flow": pdk.Layer(
-                "ArcLayer",
-                data=from_data_file("bart_path_stats.json"),
-                get_source_position=["lon", "lat"],
-                get_target_position=["lon2", "lat2"],
-                get_source_color=[200, 30, 0, 160],
-                get_target_color=[200, 30, 0, 160],
-                auto_highlight=True,
-                width_scale=0.0001,
-                get_width="outbound",
-                width_min_pixels=3,
-                width_max_pixels=30,
-            ),
+            )
         }
         st.sidebar.markdown("### Map Layers")
         selected_layers = [
