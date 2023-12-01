@@ -10,15 +10,16 @@ def run():
         page_icon="👋",
     )
 
-    st.write("# Welcome to Projet Data! 👋")
-    st.markdown(
-        """
-       Chercher un emploi
-        
-    """
-    )
+    st.write("# Welcome to ProjetData")
 
-    st.multiselect('Multiselect', [1,2,3])
+
+    contrat = st.selectbox('Type de contrat', ["","CDD","CDI"])
+    if  contrat == "":
+        st.warning('Veuillez selelctionner un type de contrat.')
+
+    code_postal = st.number_input('Code Postal', step=1, value=None)
+    if len(str(code_postal)) != 5 and code_postal != None:
+        st.warning('Veuillez entrer un code postal valide.')
 
 
 if __name__ == "__main__":
