@@ -13,7 +13,7 @@ def run():
     st.write("# Welcome to ProjetData")
 
 
-    contrat = st.selectbox('Type de contrat', ["","CDD","CDI"])
+    contrat = st.selectbox('Type de contrat', ["","CDD","CDI","Stage","Alternance])
     if  contrat == "":
         st.warning('Veuillez selelctionner un type de contrat.')
 
