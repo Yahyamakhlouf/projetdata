@@ -48,4 +48,7 @@ def run():
         )
 
 if __name__ == "__main__":
+    try:
     run()
+except Exception as e:
+    st.error(f"An error occurred: {e}")
