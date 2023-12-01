@@ -32,6 +32,8 @@ def run():
     if len(str(code_postal)) != 5 and code_postal != None:
         st.warning('Veuillez entrer un code postal valide.')
 
+    mapping_demo()
+
 
 #La carte graphique
 def mapping_demo():
@@ -125,13 +127,9 @@ st.write(
 to display geospatial data."""
 )
 
-mapping_demo()
-
-show_code(mapping_demo)
 
 if __name__ == "__main__":
     try:
         run()
-        mapping_demo()
     except Exception as e:
         st.error(f"An error occurred: {e}")
