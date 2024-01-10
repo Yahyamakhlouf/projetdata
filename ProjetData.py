@@ -53,6 +53,7 @@ def run():
                 valid_code_postal = 1
             else : 
                 valid_code_postal = 0
-                
+
+if __name__ == "__main__":
     run()
 
