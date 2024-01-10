@@ -17,9 +17,11 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
-valid_contrat = 0
-valid_code_postal = 0
 def run():
+
+    valid_contrat = 0
+    valid_code_postal = 0
+    
     st.set_page_config(
         page_title="Hello",
         page_icon="👋",
