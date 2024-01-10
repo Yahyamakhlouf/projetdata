@@ -35,6 +35,15 @@ def run():
     if len(str(code_postal)) != 5 and code_postal != None:
         st.warning('Veuillez entrer un code postal valide.')
 
+    if st.button('Valider'):
+            # Vérifier si le type de contrat est vide
+            if  contrat == "":
+                # Afficher un message d'erreur en dessous de la boîte de sélection
+                st.warning('Veuillez sélectionner un type de contrat.')
+            # Vérifier si le code postal est valide
+            if len(str(code_postal)) != 5 and code_postal != None:
+                # Afficher un message d'erreur en dessous du champ de saisie
+                st.error('Veuillez entrer un code postal valide.')
 
 if __name__ == "__main__":
     run()
