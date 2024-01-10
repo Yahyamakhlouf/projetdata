@@ -35,6 +35,9 @@ def run():
             # Vérifier si le type de contrat est vide
             if  contrat == "":
                 st.warning('Veuillez selelctionner un type de contrat.')
+            # Vérifier si le code postal est vide
+            if  code_postal == "":
+                st.warning('Veuillez entrer un code postal.')
             # Vérifier si le code postal est valide
             if len(str(code_postal)) != 5 and code_postal != None:
                 st.warning('Veuillez entrer un code postal valide.')
