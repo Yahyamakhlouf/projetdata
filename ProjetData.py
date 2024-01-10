@@ -47,14 +47,10 @@ def run():
             # Vérifier si le type de contrat est vide
             if  contrat == "":
                 valid_contrat = 1
-            else : 
-                valid_contrat = 0
             # Vérifier si le code postal est valide
             if len(str(code_postal)) != 5 and code_postal != None:
                 valid_code_postal = 1
-            else : 
-                valid_code_postal = 0
-                
+
 
 if __name__ == "__main__":
     run()
