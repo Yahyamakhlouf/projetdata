@@ -20,9 +20,6 @@ LOGGER = get_logger(__name__)
 
 def run():
     
-    valid_contrat = 0
-    valid_code_postal = 0
-
     st.set_page_config(
         page_title="Hello",
         page_icon="👋",
@@ -30,22 +27,17 @@ def run():
 
     st.write("# Welcome to ProjetData")
 
-
     contrat = st.selectbox('Type de contrat', ["","CDD","CDI"])
-    if valid_contrat == 1:
-        st.warning('Veuillez selelctionner un type de contrat.')
 
     code_postal = st.number_input('Code Postal', step=1, value=None)
-    if valid_code_postal == 1:
-        st.warning('Veuillez entrer un code postal valide.')
 
     if st.button('Valider'):
             # Vérifier si le type de contrat est vide
             if  contrat == "":
-                valid_contrat = 1
+                st.warning('Veuillez selelctionner un type de contrat.')
             # Vérifier si le code postal est valide
             if len(str(code_postal)) != 5 and code_postal != None:
-                valid_code_postal = 1
+                st.warning('Veuillez entrer un code postal valide.')
 
 
 if __name__ == "__main__":
