@@ -17,7 +17,8 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
-
+valid_contrat = 0
+valid_code_postal = 0
 def run():
     st.set_page_config(
         page_title="Hello",
@@ -28,22 +29,25 @@ def run():
 
 
     contrat = st.selectbox('Type de contrat', ["","CDD","CDI"])
-    if  contrat == "":
+    if valid_contrat == 1:
         st.warning('Veuillez selelctionner un type de contrat.')
 
     code_postal = st.number_input('Code Postal', step=1, value=None)
-    if len(str(code_postal)) != 5 and code_postal != None:
+    if valid_code_postal == 1:
         st.warning('Veuillez entrer un code postal valide.')
 
     if st.button('Valider'):
             # Vérifier si le type de contrat est vide
             if  contrat == "":
-                # Afficher un message d'erreur en dessous de la boîte de sélection
-                st.warning('Veuillez sélectionner un type de contrat.')
+                valid_contrat = 1
+            else : 
+                valid_contrat = 0
             # Vérifier si le code postal est valide
             if len(str(code_postal)) != 5 and code_postal != None:
-                # Afficher un message d'erreur en dessous du champ de saisie
-                st.error('Veuillez entrer un code postal valide.')
+                valid_code_postal = 1
+            else : 
+                valid_code_postal = 0
+                
 
 if __name__ == "__main__":
     run()
