@@ -17,10 +17,14 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
-def run():
+# Définir les variables globales valid_contrat et valid_code_postal
+valid_contrat = 0
+valid_code_postal = 0
 
-    valid_contrat = 0
-    valid_code_postal = 0
+def run():
+    # Utiliser le mot-clé global pour accéder aux variables globales
+    global valid_contrat
+    global valid_code_postal
     
     st.set_page_config(
         page_title="Hello",
@@ -53,3 +57,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+
