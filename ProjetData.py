@@ -23,9 +23,6 @@ valid_contrat = 0
 valid_code_postal = 0
 
 def run():
-    # Utiliser le mot-clé global pour accéder aux variables globales
-    global valid_contrat
-    global valid_code_postal
     
     st.set_page_config(
         page_title="Hello",
