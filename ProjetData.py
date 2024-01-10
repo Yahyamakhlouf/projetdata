@@ -18,6 +18,7 @@ from streamlit.logger import get_logger
 LOGGER = get_logger(__name__)
 
 
+# Définir les variables globales valid_contrat et valid_code_postal
 valid_contrat = 0
 valid_code_postal = 0
 
@@ -53,6 +54,7 @@ def run():
                 valid_code_postal = 1
             else : 
                 valid_code_postal = 0
+                
 
 if __name__ == "__main__":
     run()
