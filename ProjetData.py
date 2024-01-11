@@ -29,8 +29,10 @@ def run():
 
     contrat = st.selectbox('Type de contrat', ["","CDD","CDI"])
 
-    code_postal = st.number_input('Code Postal', step=1, value=None)
+    code_postal = st.number_input('Code Postal', step=1, value=None
 
+    domaine = st.number_input('Domaine')
+    
     if st.button('Valider'):
             # Vérifier si le type de contrat est vide
             if  contrat == "":
@@ -41,6 +43,9 @@ def run():
             # Vérifier si le code postal est valide
             if len(str(code_postal)) != 5 and code_postal != None:
                 st.warning('Veuillez entrer un code postal valide.')
+            # Vérifier si le domaine est vide
+            if  domaine == None:
+                st.warning('Veuillez entrer un code domaine.')
 
 
 if __name__ == "__main__":
