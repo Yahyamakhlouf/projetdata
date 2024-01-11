@@ -31,7 +31,7 @@ def run():
 
     code_postal = st.number_input('Code Postal', step=1, value=None)
 
-    domaine = st.number_input('Domaine')
+    domaine = st.text_input('Domaine')
     
     if st.button('Valider'):
             # Vérifier si le type de contrat est vide
