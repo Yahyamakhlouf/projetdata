@@ -44,8 +44,8 @@ def run():
             if len(str(code_postal)) != 5 and code_postal != None:
                 st.warning('Veuillez entrer un code postal valide.')
             # Vérifier si le domaine est vide
-            if  domaine == None:
-                st.warning('Veuillez entrer un code domaine.')
+            if  domaine == "":
+                st.warning('Veuillez entrer un domaine.')
 
 
 if __name__ == "__main__":
