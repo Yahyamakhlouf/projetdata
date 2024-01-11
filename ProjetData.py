@@ -27,7 +27,7 @@ def run():
 
     st.write("# Welcome to ProjetData")
 
-    contrat = st.multiselect('Type de contrat', ["","CDD","CDI","Intérim","Stage","Apprentissage","Contrat pro","Indépendant"])
+    contrat = st.multiselect('Type de contrat', ["","CDD","CDI","Intérim","Stage","Apprentissage","Contrat pro","Indépendant"], default=[])
 
     code_postal = st.number_input('Code Postal', step=1, value=None)
 
