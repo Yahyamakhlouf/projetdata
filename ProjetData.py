@@ -29,7 +29,7 @@ def run():
 
     contrat = st.selectbox('Type de contrat', ["","CDD","CDI"])
 
-    code_postal = st.number_input('Code Postal', step=1, value=None
+    code_postal = st.number_input('Code Postal', step=1, value=None)
 
     domaine = st.number_input('Domaine')
     
