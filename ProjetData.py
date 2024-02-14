@@ -33,7 +33,7 @@ def run():
 
     secteur = st.text_input('Secteur')
 
-    durée_publication = st.selectbox('Durée de publication', "Dernières 24h","Dernires 3j","Dernière semaine","Dernier mois")
+    durée_publication = st.selectbox('Durée de publication', ["Dernières 24h","Dernires 3j","Dernière semaine","Dernier mois"])
 
     télétravail = st.selectbox('Télétravail', "Télétravail possible","Téletravail partiel possible")
     
