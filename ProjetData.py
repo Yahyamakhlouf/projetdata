@@ -48,8 +48,8 @@ def run():
     horaires = st.selectbox('Horaires', ["","Temps plein","Temps partiel","Week-end uniquement","Travail de nuit"])
     
     if st.button('Valider'):
-            # Vérifier si le code postal est vide
-            if  code_postal == None:
+            # Vérifier si le code postal est valide
+            if  code_postal =! None :
                 st.warning('Veuillez entrer un code postal.')
             
 
