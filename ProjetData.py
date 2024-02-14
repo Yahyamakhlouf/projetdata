@@ -29,7 +29,7 @@ def run():
 
     contrat = st.multiselect('Type de contrat', ["CDD","CDI","Intérim","Stage","Apprentissage","Contrat pro","Indépendant"])
 
-    code_postal = st.number_input('Code Postal', step=1, value=None)
+    code_postal = st.text_input('Code Postal')
 
     durée_publication = st.selectbox('Durée de publication', ["","Dernières 24h","Dernires 3j","Dernière semaine","Dernier mois"])
 
