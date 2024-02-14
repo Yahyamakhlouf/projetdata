@@ -31,8 +31,6 @@ def run():
 
     code_postal = st.number_input('Code Postal', step=1, value=None)
 
-    secteur = st.text_input('Secteur')
-
     durée_publication = st.selectbox('Durée de publication', ["","Dernières 24h","Dernires 3j","Dernière semaine","Dernier mois"])
 
     télétravail = st.selectbox('Télétravail', ["","Télétravail possible" ,"Téletravail partiel possible"])
@@ -50,15 +48,9 @@ def run():
     horaires = st.selectbox('Horaires', ["","Temps plein","Temps partiel","Week-end uniquement","Travail de nuit"])
     
     if st.button('Valider'):
-            # Vérifier si le type de contrat est vide
-            if  contrat == None:
-                st.warning('Veuillez selelctionner un type de contrat.')
             # Vérifier si le code postal est vide
             if  code_postal == None:
                 st.warning('Veuillez entrer un code postal.')
-            # Vérifier si le code postal est valide
-            if len(str(code_postal)) != 5 and code_postal != None:
-                st.warning('Veuillez entrer un code postal valide.')
             
 
 
