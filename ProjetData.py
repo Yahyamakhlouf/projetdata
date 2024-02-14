@@ -49,7 +49,7 @@ def run():
     
     if st.button('Valider'):
             # Vérifier si le code postal est valide
-            if not code_postal.isdigit() or len(code_postal) != 5 :
+            if code_postal.strip() and (not code_postal.isdigit() or len(code_postal) != 5):
                 st.warning('Veuillez entrer un code postal valide.')
             
 
