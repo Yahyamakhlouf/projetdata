@@ -39,7 +39,7 @@ def run():
     
     if st.button('Valider'):
             # Vérifier si le type de contrat est vide
-            if  contrat == "":
+            if  contrat == None:
                 st.warning('Veuillez selelctionner un type de contrat.')
             # Vérifier si le code postal est vide
             if  code_postal == None:
