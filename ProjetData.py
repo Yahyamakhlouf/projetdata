@@ -50,7 +50,7 @@ def run():
     if st.button('Valider'):
             # Vérifier si le code postal est valide
             if  code_postal != "" :
-                st.warning('Veuillez entrer un code postal.')
+                st.warning('Veuillez entrer un code postal valide.')
             
 
 
