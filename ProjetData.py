@@ -31,6 +31,7 @@ def run():
 #La carte graphique
 def mapping_demo():
     @st.cache_data
+    
     try:
         ALL_LAYERS = {
             "Bike Rentals": pdk.Layer(
