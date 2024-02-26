@@ -40,23 +40,6 @@ def mapping_demo():
                 elevation_scale=4,
                 elevation_range=[0, 1000],
                 extruded=True,
-            ),
-            "Bart Stop Exits": pdk.Layer(
-                "ScatterplotLayer",
-                data=pd.read_json("BDD.json", lines=False),
-                get_position=["longitude_lieuTravail", "latitude_lieuTravail"],
-                get_color=[200, 30, 0, 160],
-                get_radius="[exits]",
-                radius_scale=0.05,
-            ),
-            "Bart Stop Names": pdk.Layer(
-                "TextLayer",
-                data=pd.read_json("BDD.json", lines=False),
-                get_position=["longitude_lieuTravail", "latitude_lieuTravail"],
-                get_text="name",
-                get_color=[0, 0, 0, 200],
-                get_size=10,
-                get_alignment_baseline="'bottom'",
             )
         }
         st.sidebar.markdown("### Map Layers")
@@ -72,7 +55,7 @@ def mapping_demo():
                     initial_view_state={
                         "latitude": 46.84,
                         "longitude": 2.35,
-                        "zoom": 11,
+                        "zoom": 0,
                         "pitch": 50,
                     },
                     layers=selected_layers,
