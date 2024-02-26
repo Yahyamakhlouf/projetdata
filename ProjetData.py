@@ -55,7 +55,7 @@ def mapping_demo():
                     initial_view_state={
                         "latitude": 46.84,
                         "longitude": 2.35,
-                        "zoom": 0,
+                        "zoom": 5,
                         "pitch": 50,
                     },
                     layers=selected_layers,
