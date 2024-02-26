@@ -33,7 +33,7 @@ def mapping_demo():
     @st.cache_data
     def from_data_file(filename):
         url = (
-            "https://github.com/PDECM/projetdata/tree/Mayssa" % filename
+            "https://github.com/PDECM/projetdata/tree/Mayssa/" % filename
         )
         return pd.read_json(url)
 
