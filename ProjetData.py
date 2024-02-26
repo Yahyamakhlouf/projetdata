@@ -41,7 +41,7 @@ def mapping_demo():
         ALL_LAYERS = {
             "Bike Rentals": pdk.Layer(
                 "HexagonLayer",
-                data=from_data_file("BDD.json"),
+                data=pd.read_json("https://github.com/PDECM/projetdata/tree/Mayssa/BDD.json", lines=False),
                 get_position=["longitude_lieuTravail", "latitude_lieuTravail"],
                 radius=200,
                 elevation_scale=4,
@@ -50,7 +50,7 @@ def mapping_demo():
             ),
             "Bart Stop Exits": pdk.Layer(
                 "ScatterplotLayer",
-                data=from_data_file("BDD.json"),
+                data=pd.read_json("https://github.com/PDECM/projetdata/tree/Mayssa/BDD.json", lines=False),
                 get_position=["longitude_lieuTravail", "latitude_lieuTravail"],
                 get_color=[200, 30, 0, 160],
                 get_radius="[exits]",
@@ -58,7 +58,7 @@ def mapping_demo():
             ),
             "Bart Stop Names": pdk.Layer(
                 "TextLayer",
-                data=from_data_file("BDD.json"),
+                data=pd.read_json("https://github.com/PDECM/projetdata/tree/Mayssa/BDD.json", lines=False),
                 get_position=["longitude_lieuTravail", "latitude_lieuTravail"],
                 get_text="name",
                 get_color=[0, 0, 0, 200],
