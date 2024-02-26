@@ -35,7 +35,7 @@ def mapping_demo():
             "Bike Rentals": pdk.Layer(
                 "HexagonLayer",
                 data=pd.read_json("BDD.json", lines=False),
-                get_position=["lieuTravail.longitude", "lieuTravail.latitude"],
+                get_position=["lieuTravail.latitude","lieuTravail.longitude"],
                 radius=200,
                 elevation_scale=4,
                 elevation_range=[0, 1000],
