@@ -31,12 +31,6 @@ def run():
 #La carte graphique
 def mapping_demo():
     @st.cache_data
-    def from_data_file(filename):
-        url = (
-            "https://github.com/PDECM/projetdata/tree/Mayssa/%s" % filename
-        )
-        return pd.read_json(url, lines=False)
-
     try:
         ALL_LAYERS = {
             "Bike Rentals": pdk.Layer(
