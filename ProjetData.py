@@ -35,7 +35,7 @@ def mapping_demo():
         url = (
             "https://github.com/PDECM/projetdata/tree/Mayssa/%s" % filename
         )
-        return pd.read_json(url)
+        return pd.read_json(url, lines=False)
 
     try:
         ALL_LAYERS = {
