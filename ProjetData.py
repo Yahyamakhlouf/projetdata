@@ -12,7 +12,7 @@ st.pydeck_chart(pdk.Deck(
     initial_view_state=pdk.ViewState(
         latitude=46.84,
         longitude=2.35,
-        zoom=11,
+        zoom=5,
         pitch=50,
     ),
     layers=[
@@ -22,7 +22,7 @@ st.pydeck_chart(pdk.Deck(
            get_position='[lon, lat]',
            radius=20000,
            elevation_scale=4,
-           elevation_range=[0, 1000],
+           elevation_range=[0, 10000],
            pickable=True,
            extruded=True,
         ),
