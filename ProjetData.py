@@ -31,7 +31,7 @@ def run():
 #La carte graphique
 def mapping_demo():
     data = pd.read_json("BDD.json", lines=False)
-    data2 = pd.DataFrmae(data)
+    data2 = pd.DataFrame(data)
     st.write(data2)
     st.write(data["lieuTravail.longitude"])
     try:
