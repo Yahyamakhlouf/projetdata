@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 
-st.write("#Plan de Travail")
+st.set_page_config(page_title="Plan de Travail", page_icon="🌍")
 
 data = pd.read_json("BDD.json", lines=False)
 data2 = pd.DataFrame(data)
