@@ -29,7 +29,7 @@ def run():
 
     contrat = st.multiselect('Type de contrat', ["CDD","CDI","Intérim","Stage","Apprentissage","Contrat pro","Indépendant"])
 
-    experience = st.selectbox('Expérience', ["Débutant", "1 an et plus", "3 ans et plus", "5 ans et plus"])
+    experience = st.selectbox('Expérience', ["","Débutant", "1 an et plus", "3 ans et plus", "5 ans et plus"])
         
         #code_postal = st.text_input('Code Postal')
     
