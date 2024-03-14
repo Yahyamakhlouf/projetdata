@@ -31,7 +31,7 @@ def run():
 #La carte graphique
 def mapping_demo():
     try:
-        ALL_LAYERS = {
+        ALL_LAYERS ={
             "Bike Rentals": pdk.Layer(
                 "HexagonLayer",
                 data=pd.read_json("BDD.json", lines=False),
