@@ -25,7 +25,7 @@ def run():
         page_icon="👋",
     )
 
-    st.write("# Welcome to ProjetData")
+    st.write("# AuBoulot.fr")
 
     contrat = st.multiselect('Type de contrat', ["CDD","CDI","Intérim","Stage","Apprentissage","Contrat pro","Indépendant"])
 
