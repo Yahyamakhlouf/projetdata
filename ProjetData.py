@@ -13,12 +13,22 @@ st.pydeck_chart(pdk.Deck(
     initial_view_state=pdk.ViewState(
         latitude=46.84,
         longitude=2.35,
-        zoom=5,
+        zoom=11,
         pitch=50,
     ),
     layers=[
         pdk.Layer(
-           'ScatterplotLayer',
+           'HexagonLayer',
+           data=data3,
+           get_position='[lon, lat]',
+           radius=200,
+           elevation_scale=4,
+           elevation_range=[0, 1000],
+           pickable=True,
+           extruded=True,
+        ),
+        pdk.Layer(
+            'ScatterplotLayer',
             data=data3,
             get_position='[lon, lat]',
             get_color='[200, 30, 0, 160]',
