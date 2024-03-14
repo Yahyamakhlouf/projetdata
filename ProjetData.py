@@ -50,7 +50,6 @@ def run():
     horaires = st.selectbox('Horaires', ["","Temps plein","Temps partiel","Week-end uniquement","Travail de nuit"])
     
     if st.button('Valider'):
-        else:
             # Création du dictionnaire des entrées
             user_inputs = {
                 'Type de contrat': contrat,
