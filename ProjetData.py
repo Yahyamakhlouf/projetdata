@@ -31,9 +31,9 @@ def run():
 
     code_postal = st.text_input('Code Postal')
 
-    durée_publication = st.selectbox('Durée de publication', ["","Dernières 24h","Dernires 3j","Dernière semaine","Dernier mois"])
+    duree_publication = st.selectbox('Durée de publication', ["","Dernières 24h","Dernires 3j","Dernière semaine","Dernier mois"])
 
-    télétravail = st.selectbox('Télétravail', ["","Télétravail possible" ,"Téletravail partiel possible"])
+    teletravail = st.selectbox('Télétravail', ["","Télétravail possible" ,"Téletravail partiel possible"])
 
     salaire = st.selectbox('Salaire', ["","1666,67+/mois","2083,33+/mois","2500,00+/mois","2916,67+/mois","3750,00+/mois"])
 
@@ -56,8 +56,8 @@ def run():
             user_inputs = {
                 'Type de contrat': contrat,
                 'Code Postal': code_postal,
-                'Durée de publication': durée_publication,
-                'Télétravail': télétravail,
+                'Durée de publication': duree_publication,
+                'Télétravail': teletravail,
                 'Salaire': salaire,
                 'Secteur': secteur,
                 'Horaires': horaires
