@@ -30,12 +30,12 @@ def run():
     contrat = st.multiselect('Type de contrat', ["CDD","CDI","Intérim","Stage","Apprentissage","Contrat pro","Indépendant"])
 
     experience = st.selectbox('Expérience', ["Débutant", "1 an et plus", "3 ans et plus", "5 ans et plus"])
+        
+        #code_postal = st.text_input('Code Postal')
     
-    #code_postal = st.text_input('Code Postal')
-
-    #duree_publication = st.selectbox('Durée de publication', ["","Dernières 24h","Dernires 3j","Dernière semaine","Dernier mois"])
-
-    #teletravail = st.selectbox('Télétravail', ["","Télétravail possible" ,"Téletravail partiel possible"])
+        #duree_publication = st.selectbox('Durée de publication', ["","Dernières 24h","Dernires 3j","Dernière semaine","Dernier mois"])
+    
+        #teletravail = st.selectbox('Télétravail', ["","Télétravail possible" ,"Téletravail partiel possible"])
 
     salaire = st.selectbox('Salaire', ["","1666,67+/mois","2083,33+/mois","2500,00+/mois","2916,67+/mois","3750,00+/mois"])
 
