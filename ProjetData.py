@@ -56,8 +56,8 @@ def run():
             user_inputs = {
                 'Type de contrat': contrat,
                 'Code Postal': code_postal,
-                'Durée de publication': duree_publication,
-                'Télétravail': teletravail,
+                'Durée de publication': durée_publication,
+                'Télétravail': télétravail,
                 'Salaire': salaire,
                 'Secteur': secteur,
                 'Horaires': horaires
