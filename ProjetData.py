@@ -3,9 +3,10 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 
-chart_data = pd.DataFrame(
-   np.random.randn(1000, 2) / [50, 50] + [46.84, 2.35],
-   columns=['lat', 'lon'])
+data = pd.read_json("BDD.json", lines=False)
+data2 = pd.DataFrame(data)
+data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
+data3 = data2[['lon','lat']
 
 st.pydeck_chart(pdk.Deck(
     map_style=None,
@@ -18,7 +19,7 @@ st.pydeck_chart(pdk.Deck(
     layers=[
         pdk.Layer(
            'HexagonLayer',
-           data=chart_data,
+           data=data3,
            get_position='[lon, lat]',
            radius=2000,
            elevation_scale=10,
