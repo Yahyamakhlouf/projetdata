@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 
-data = pd.read_excel("table_finale_excel.xlsx")
+data = pd.read_excel('table_finale_excel.xlsx')
 data2 = pd.DataFrame(data)
 data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
 data3 = data2[['lon','lat']]
