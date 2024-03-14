@@ -8,6 +8,8 @@ data2 = pd.DataFrame(data)
 data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
 data3 = data2[['lon','lat']]
 
+git add data3.csv
+
 st.pydeck_chart(pdk.Deck(
     map_style=None,
     initial_view_state=pdk.ViewState(
