@@ -40,6 +40,7 @@ def mapping_demo():
                 elevation_scale=4,
                 elevation_range=[0, 1000],
                 extruded=True,
+                pickable=True,
             )
         }
         st.sidebar.markdown("### Map Layers")
