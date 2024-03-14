@@ -1,69 +1,37 @@
 import streamlit as st
 import pandas as pd
-import pydeck as pdk
 import numpy as np
+import pydeck as pdk
 
-from urllib.error import URLError
-from streamlit.logger import get_logger
-from streamlit.hello.utils import show_code
+chart_data = pd.DataFrame(
+   np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+   columns=['lat', 'lon'])
 
-LOGGER = get_logger(__name__)
-
-def run():
-    st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
-    )
-
-    st.write("# Welcome to ProjetData")
-
-
-    contrat = st.selectbox('Type de contrat', ["","CDD","CDI","Stage","Alternance"])
-    if  contrat == "":
-        st.warning('Veuillez selelctionner un type de contrat.')
-
-    code_postal = st.number_input('Code Postal', step=1, value=None)
-    if len(str(code_postal)) != 5 and code_postal != None:
-        st.warning('Veuillez entrer un code postal valide.')
-
-    
-
-
-#La carte graphique
-def mapping_demo():
-    data = pd.read_json("BDD.json", lines=False)
-    data2 = pd.DataFrame(data)
-    data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
-    #data3 = data2[['lon','lat']
-    data3 = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],columns=['lat', 'lon'])
-    st.write(data3)
-    
-    st.pydeck_chart(pdk.Deck(
-        map_style=None,
-        initial_view_state=pdk.ViewState(
-            latitude=46.84,
-            longitude=2.35,
-            zoom=5,
-            pitch=50,
+st.pydeck_chart(pdk.Deck(
+    map_style=None,
+    initial_view_state=pdk.ViewState(
+        latitude=37.76,
+        longitude=-122.4,
+        zoom=11,
+        pitch=50,
+    ),
+    layers=[
+        pdk.Layer(
+           'HexagonLayer',
+           data=chart_data,
+           get_position='[lon, lat]',
+           radius=200,
+           elevation_scale=4,
+           elevation_range=[0, 1000],
+           pickable=True,
+           extruded=True,
         ),
-        layers=[
-            pdk.Layer(
-                "HexagonLayer",
-                data=data3,
-                get_position='[lon,lat]',
-                radius=200,
-                elevation_scale=4,
-                elevation_range=[0, 1000],
-                pickable=True,
-                extruded=True,
-            )
-        ]
-    ))
-        
-
-if __name__ == "__main__":
-    try:
-        run()
-        mapping_demo()
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
+        pdk.Layer(
+            'ScatterplotLayer',
+            data=chart_data,
+            get_position='[lon, lat]',
+            get_color='[200, 30, 0, 160]',
+            get_radius=200,
+        ),
+    ],
+))
