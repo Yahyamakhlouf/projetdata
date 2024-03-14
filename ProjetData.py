@@ -45,7 +45,7 @@ def mapping_demo():
                 pdk.Layer(
                     "HexagonLayer",
                     data=data,
-                    get_position="["lieuTravail.longitude","lieuTravail.latitude"]",
+                    get_position=["lieuTravail.latitude","lieuTravail.longitude"],
                     radius=100,
                     elevation_scale=4,
                     elevation_range=[0, 1000],
