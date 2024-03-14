@@ -32,7 +32,9 @@ def run():
 def mapping_demo():
     data = pd.read_json("BDD.json", lines=False)
     data2 = pd.DataFrame(data)
+    data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"}=
     st.write(data2)
+    st.write(data2['lon'],data2['lat'])
     st.write(data["lieuTravail.longitude"])
     try:
         st.pydeck_chart(pdk.Deck(
@@ -47,7 +49,7 @@ def mapping_demo():
                 pdk.Layer(
                     "HexagonLayer",
                     data=data2,
-                    get_position='[lieuTravail.longitude,lieuTravail.latitude]',
+                    get_position='[lon,lat]',
                     radius=100,
                     elevation_scale=4,
                     elevation_range=[0, 1000],
