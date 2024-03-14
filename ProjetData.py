@@ -32,28 +32,28 @@ def run():
 def mapping_demo():
     data = pd.read_json("BDD.json", lines=False)
     st.write(data["lieuTravail.longitude"])
-    try:    
+    try:
         st.pydeck_chart(pdk.Deck(
-                                map_style=None,
-                                initial_view_state=pdk.ViewState(
-                                                                latitude= 46.84,
-                                                                longitude= 2.35,
-                                                                zoom= 5,
-                                                                pitch= 50,
-                                                                ),
-                                                layers=[pdk.Layer(
-                                                                "HexagonLayer",
-                                                                data=data,
-                                                                get_position="[lieuTravail.longitude,lieuTravail.latitude]",
-                                                                radius=100,
-                                                                elevation_scale=4,
-                                                                elevation_range=[0, 1000],
-                                                                pickable=True,
-                                                                extruded=True,
-                    
-                                                                )]
-                            )
-                            )
+            map_style=None,
+            initial_view_state=pdk.ViewState(
+                latitude=46.84,
+                longitude=2.35,
+                zoom=5,
+                pitch=50,
+            ),
+            layers=[
+                pdk.Layer(
+                    "HexagonLayer",
+                    data=data,
+                    get_position="[lieuTravail.longitude,lieuTravail.latitude]",
+                    radius=100,
+                    elevation_scale=4,
+                    elevation_range=[0, 1000],
+                    pickable=True,
+                    extruded=True,
+                )
+            ]
+        ))
         
     except URLError as e:
         st.error(
