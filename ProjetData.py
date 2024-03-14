@@ -50,9 +50,6 @@ def run():
     horaires = st.selectbox('Horaires', ["","Temps plein","Temps partiel","Week-end uniquement","Travail de nuit"])
     
     if st.button('Valider'):
-        # Vérifier si le code postal est valide
-        if code_postal.strip() and (not code_postal.isdigit() or len(code_postal) != 5):
-            st.warning('Code postal non valide.')
         else:
             # Création du dictionnaire des entrées
             user_inputs = {
