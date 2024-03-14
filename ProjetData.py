@@ -61,8 +61,17 @@ def mapping_demo():
                         "zoom": 5,
                         "pitch": 50,
                     },
-                    layers=selected_layers,
-                )
+                    layers=[pdk.Layer(
+                "HexagonLayer",
+                data=data,
+                get_position=["lieuTravail.longitude","lieuTravail.latitude"],
+                radius=100,
+                elevation_scale=4,
+                elevation_range=[0, 1000],
+                extruded=True,
+                pickable=True,
+            )],
+                ),
             )
         else:
             st.error("Please choose at least one layer above.")
