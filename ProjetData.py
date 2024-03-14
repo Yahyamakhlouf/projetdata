@@ -34,10 +34,10 @@ def mapping_demo():
     try:
         ALL_LAYERS ={
             "Bike Rentals": pdk.Layer(
-                "ScatterplotLayer",
+                "HexagonLayer",
                 data=data,
                 get_position=["lieuTravail.longitude","lieuTravail.latitude"],
-                radius=200,
+                radius=100,
                 elevation_scale=4,
                 elevation_range=[0, 1000],
                 extruded=True,
