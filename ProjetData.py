@@ -20,7 +20,7 @@ st.pydeck_chart(pdk.Deck(
            'HexagonLayer',
            data=chart_data,
            get_position='[lon, lat]',
-           radius=200,
+           radius=20000,
            elevation_scale=4,
            elevation_range=[0, 1000],
            pickable=True,
