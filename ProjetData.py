@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pydeck as pdk
+import numpy as np
 
 from urllib.error import URLError
 from streamlit.logger import get_logger
@@ -33,7 +34,8 @@ def mapping_demo():
     data = pd.read_json("BDD.json", lines=False)
     data2 = pd.DataFrame(data)
     data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
-    data3 = data2[['lon','lat']]
+    #data3 = data2[['lon','lat']
+    data3 = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],columns=['lat', 'lon'])
     st.write(data3)
     
     st.pydeck_chart(pdk.Deck(
