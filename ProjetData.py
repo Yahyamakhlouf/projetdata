@@ -57,9 +57,7 @@ def run():
             # Création du dictionnaire des entrées
             user_inputs = {
                 'Type de contrat': contrat,
-                'Code Postal': code_postal,
-                'Durée de publication': duree_publication,
-                'Télétravail': teletravail,
+                'Expérience': experience,
                 'Salaire': salaire,
                 'Secteur': secteur,
                 'Horaires': horaires
