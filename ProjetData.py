@@ -30,11 +30,12 @@ def run():
 
 #La carte graphique
 def mapping_demo():
+    data = pd.read_json("BDD.json", lines=False)
     try:
         ALL_LAYERS ={
             "Bike Rentals": pdk.Layer(
                 "HexagonLayer",
-                data=pd.read_json("BDD.json", lines=False),
+                data=data,
                 get_position=["lieuTravail.longitude","lieuTravail.latitude"],
                 radius=200,
                 elevation_scale=4,
@@ -43,7 +44,7 @@ def mapping_demo():
                 pickable=True,
             )
         }
-        st.write(get_position)
+        st.write(data["lieuTravail.longitude"])
         st.sidebar.markdown("### Map Layers")
         selected_layers = [
             layer
