@@ -35,38 +35,29 @@ def mapping_demo():
     data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
     data3 = data2[['lon','lat']]
     st.write(data3)
-    try:
-        st.pydeck_chart(pdk.Deck(
-            map_style=None,
-            initial_view_state=pdk.ViewState(
-                latitude=46.84,
-                longitude=2.35,
-                zoom=5,
-                pitch=50,
-            ),
-            layers=[
-                pdk.Layer(
-                    "HexagonLayer",
-                    data=data3,
-                    get_position='[lon,lat]',
-                    radius=100,
-                    elevation_scale=4,
-                    elevation_range=[0, 1000],
-                    pickable=True,
-                    extruded=True,
-                )
-            ]
-        ))
+    
+    st.pydeck_chart(pdk.Deck(
+        map_style=None,
+        initial_view_state=pdk.ViewState(
+            latitude=46.84,
+            longitude=2.35,
+            zoom=5,
+            pitch=50,
+        ),
+        layers=[
+            pdk.Layer(
+                "HexagonLayer",
+                data=data3,
+                get_position='[lon,lat]',
+                radius=200,
+                elevation_scale=4,
+                elevation_range=[0, 1000],
+                pickable=True,
+                extruded=True,
+            )
+        ]
+    ))
         
-    except URLError as e:
-        st.error(
-            """
-            **This demo requires internet access.**
-            Connection error: %s
-        """
-            % e.reason
-        )
-
 
 if __name__ == "__main__":
     try:
