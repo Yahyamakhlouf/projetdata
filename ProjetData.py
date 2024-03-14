@@ -32,7 +32,7 @@ def run():
 def mapping_demo():
     data = pd.read_json("BDD.json", lines=False)
     data2 = pd.DataFrame(data)
-    data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
+    data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
     st.write(data2)
     st.write(data2['lon'],data2['lat'])
     st.write(data["lieuTravail.longitude"])
