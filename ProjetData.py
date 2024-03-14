@@ -6,7 +6,7 @@ import pydeck as pdk
 data = pd.read_json("BDD.json", lines=False)
 data2 = pd.DataFrame(data)
 data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
-data3 = data2[['lon','lat']
+data3 = data2[['lon','lat']]
 
 st.pydeck_chart(pdk.Deck(
     map_style=None,
