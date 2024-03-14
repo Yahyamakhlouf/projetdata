@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import pydeck as pdk
 
+st.write("#Plan de Travail")
+
 data = pd.read_json("BDD.json", lines=False)
 data2 = pd.DataFrame(data)
 data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
