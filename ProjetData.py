@@ -4,7 +4,7 @@ import numpy as np
 import pydeck as pdk
 
 #data = pd.read_json("BDD.json", lines=False)
-data2 = pd.DataFrame(table_finale_excel.xlsx)
+data2 = pd.DataFrame("table_finale_excel.xlsx")
 data2 = data2.rename(columns={"lieuTravail.longitude": "lon","lieuTravail.latitude": "lat"})
 data3 = data2[['lon','lat']]
 
