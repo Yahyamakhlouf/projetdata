@@ -66,7 +66,7 @@ def run():
             # Affichage du dictionnaire
     
             df = data2[data2["typeContrat"]==user_inputs["Type de contrat"]]
-            st.write(df[["intitule","entreprise.nom","typeContrat","origineOffre.urlOrigine"]])
+            st.write(df[["intitule","entreprise.nom","typeContrat","origineOffre.urlOrigine","scoring"]])
 
 
 if __name__ == "__main__":
