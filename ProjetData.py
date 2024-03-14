@@ -36,10 +36,10 @@ def mapping_demo():
         st.pydeck_chart(pdk.Deck(
                                 map_style=None,
                                 initial_view_state=pdk.ViewState(
-                                                                latitude: 46.84,
-                                                                longitude: 2.35,
-                                                                zoom: 5,
-                                                                pitch: 50,
+                                                                latitude= 46.84,
+                                                                longitude= 2.35,
+                                                                zoom= 5,
+                                                                pitch= 50,
                                                                 ),
                                                 layers=[pdk.Layer(
                                                                 "HexagonLayer",
