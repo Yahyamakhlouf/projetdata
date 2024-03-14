@@ -31,50 +31,30 @@ def run():
 #La carte graphique
 def mapping_demo():
     data = pd.read_json("BDD.json", lines=False)
-    try:
-        ALL_LAYERS ={
-            "Bike Rentals": pdk.Layer(
-                "HexagonLayer",
-                data=data,
-                get_position=["lieuTravail.longitude","lieuTravail.latitude"],
-                radius=100,
-                elevation_scale=4,
-                elevation_range=[0, 1000],
-                extruded=True,
-                pickable=True,
-            )
-        }
-        st.write(data["lieuTravail.longitude"])
-        st.sidebar.markdown("### Map Layers")
-        selected_layers = [
-            layer
-            for layer_name, layer in ALL_LAYERS.items()
-            if st.sidebar.checkbox(layer_name, True)
-        ]
-        if selected_layers:
-            st.pydeck_chart(
-                pdk.Deck(
-                    map_style=None,
-                    initial_view_state={
-                        "latitude": 46.84,
-                        "longitude": 2.35,
-                        "zoom": 5,
-                        "pitch": 50,
-                    },
-                    layers=[pdk.Layer(
-                "HexagonLayer",
-                data=data,
-                get_position=["lieuTravail.longitude","lieuTravail.latitude"],
-                radius=100,
-                elevation_scale=4,
-                elevation_range=[0, 1000],
-                extruded=True,
-                pickable=True,
-            )],
-                ),
-            )
-        else:
-            st.error("Please choose at least one layer above.")
+    st.write(data["lieuTravail.longitude"])
+    try:    
+        st.pydeck_chart(pdk.Deck(
+                                map_style=None,
+                                initial_view_state=pdk.ViewState(
+                                                                latitude: 46.84,
+                                                                longitude: 2.35,
+                                                                zoom: 5,
+                                                                pitch: 50,
+                                                                ),
+                                                layers=[pdk.Layer(
+                                                                "HexagonLayer",
+                                                                data=data,
+                                                                get_position="[lieuTravail.longitude,lieuTravail.latitude]",
+                                                                radius=100,
+                                                                elevation_scale=4,
+                                                                elevation_range=[0, 1000],
+                                                                pickable=True,
+                                                                extruded=True,
+                    
+                                                                )]
+                            )
+                            )
+        
     except URLError as e:
         st.error(
             """
