@@ -60,7 +60,9 @@ def run():
             }
             
             # Affichage du dictionnaire
-            st.write(user_inputs)        
+            st.write(user_inputs)
+            data = pd.read_json("BDD.json", lines=False)
+            data2 = pd.DataFrame(data)
 
 
 if __name__ == "__main__":
