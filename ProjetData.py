@@ -43,6 +43,7 @@ def mapping_demo():
                 pickable=True,
             )
         }
+        st.write(get_position)
         st.sidebar.markdown("### Map Layers")
         selected_layers = [
             layer
