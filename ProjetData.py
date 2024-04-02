@@ -19,10 +19,12 @@ import pandas as pd
 
 LOGGER = get_logger(__name__)
 
-
+def prerun():
+    
+    return data_finale
+    
 def run():
-    data = pd.read_json("BDD.json", lines=False)
-    data2 = pd.DataFrame(data)
+    data2 = prerun()
     
     st.set_page_config(
         page_title="Hello",
