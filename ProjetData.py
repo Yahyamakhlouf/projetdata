@@ -19,13 +19,11 @@ import pandas as pd
 
 LOGGER = get_logger(__name__)
 
-def prerun():
+def prerun(user_inputs):
     
     return data_finale
     
 def run():
-    data2 = prerun()
-    
     st.set_page_config(
         page_title="Hello",
         page_icon="👋",
@@ -66,7 +64,7 @@ def run():
             }
             
             # Affichage du dictionnaire
-    
+            data2 = prerun(user_inputs)
             df = data2[data2["typeContrat"]==user_inputs["Type de contrat"]]
             st.write(df[["intitule","entreprise.nom","typeContrat","origineOffre.urlOrigine","scoring"]])
 
