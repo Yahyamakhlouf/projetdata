@@ -14,6 +14,7 @@
 
 import streamlit as st
 from streamlit.logger import get_logger
+from sklearn.neighbors import NearestNeighbors
 
 import pandas as pd
 import requests
@@ -22,7 +23,7 @@ from datetime import datetime, timedelta
 
 LOGGER = get_logger(__name__)
 
-def prerun(user_inputs):
+def prerun(user_entries):
     # Fonction pour obtenir le token
     def get_access_token():
         url = "https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=/partenaire"
@@ -261,8 +262,57 @@ def prerun(user_inputs):
     train_df['ValNumSalaire'] =train_df['ValNumSalaire'] * 10** 2
 
     #user entry
-
-
+    criteres_choisis = []
+    testing_offre = []
+    for critere in user_entries.keys():
+      if critere  == 'valnumcoderome' :
+        correspondance_table = pd.read_excel('Correspondance_coderome.xlsx')
+        rome_code = correspondance_table.loc[correspondance_table['RomeLib'] == user_entries[critere], 'Codes'].iloc[0]
+        criteres_choisis.append(critere)
+        testing_offre.append(rome_code)
+    
+      if critere ==  'ValNumCodeNaf':
+        criteres_choisis.append(critere)
+        testing_offre.append(calculate_val_num_code_naf(user_entries[critere])*10)
+    
+      if critere ==  'ValNumTypeContrat':
+        criteres_choisis.append(critere)
+        testing_offre.append(numerisation_typeContrat(user_entries[critere])*10**6)
+    
+      if critere ==  'ValNumExp':
+        criteres_choisis.append(critere)
+        testing_offre.append((user_entries[critere])*10**6)
+    
+      if critere ==  'ValNumSalaire':
+        criteres_choisis.append(critere)
+        testing_offre.append((user_entries[critere])*10**2)
+    
+      if critere ==  'ValNumDureeTravail':
+        criteres_choisis.append(critere)
+        testing_offre.append((user_entries[critere])*10**5)
+    
+      if critere ==  'ValNumqualificationCode':
+        criteres_choisis.append(critere)
+        testing_offre.append((user_entries[critere])*10**6)
+          
+    testing_offre = np.array(testing_offre).reshape(1,-1)
+    
+    Nb_voisins = 150      #  user_entry
+    
+    train_df = train_df.loc[:,criteres_choisis]
+    train_df.fillna(0, inplace=True)
+    
+    nn_model = NearestNeighbors(n_neighbors= Nb_voisins, algorithm='auto', metric='euclidean')
+    nn_model.fit(train_df)
+    
+    distances, indices_neighbors = nn_model.kneighbors(testing_offre)
+    
+    table_finale = result_df.iloc[indices_neighbors[0],:]
+    table_finale['scoring'] = np.round((1-np.sqrt(distances[0]/np.linalg.norm(np.array(testing_offre))))*100 ,2)
+    table_finale_export = table_finale[['intitule','description','lieuTravail.latitude','lieuTravail.longitude','entreprise.nom','typeContrat','origineOffre.urlOrigine','scoring']]
+    table_finale_export = table_finale_export.reset_index(drop = True)
+    data_finale = table_finale_export.dropna(subset = ['lieuTravail.latitude', 'lieuTravail.longitude'], inplace=True)
+    
     return data_finale
     
 def run():
